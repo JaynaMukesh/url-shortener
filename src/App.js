@@ -1,5 +1,6 @@
 import './App.css';
 import { FaLink } from "react-icons/fa"
+// API Request sample: https://apis.webxspark.com/v2.0/mini-links/magic?insert&url=https://ai.webxspark.com/reword-me/ 
 function App() {
   return (
     <div className="flex justify-center pt-16">
