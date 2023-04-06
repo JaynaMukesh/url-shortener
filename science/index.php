@@ -2,6 +2,11 @@
 require_once('./db.php');
 require("./wxp.php");
 $App = new WebxsparkAPP();
+
+if (empty($_REQUEST)) {
+    header("Location: https://webxspark.com");
+    exit();
+}
 //redirect to the requested link
 if (isset($_GET)) {
     foreach ($_GET as $key => $val) {
@@ -15,7 +20,4 @@ if (isset($_GET)) {
         header("Location: {$redir['url']}");
         exit();
     }
-}
-if (empty($_REQUEST)) {
-    echo "<script>window.location.replace('https://webxspark.com')</script>;";
 }

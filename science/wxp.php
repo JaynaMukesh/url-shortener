@@ -50,7 +50,8 @@ class WebxsparkAPP
     {
         $stmt = $conn->prepare("SELECT * FROM url WHERE shorten_url=? LIMIT 1");
         $stmt->bind_param('s', $URL_ID);
-        $result = ($stmt->execute())->get_result();
+        $stmt->execute();
+        $result = $stmt->get_result();
         $count = $result->num_rows;
         if ($count > 0) {
             //updating url click count
