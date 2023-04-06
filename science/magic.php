@@ -4,8 +4,8 @@ require './wxp.php';
 $App = new WebxsparkAPP();
 $data = [];
 
-if(isset($_REQUEST["insert"])){
-    if(isset($_REQUEST['url'])){
+if (isset($_REQUEST["insert"])) {
+    if (isset($_REQUEST['url'])) {
         $data = $App->newURLInsert($conn, $_REQUEST['url']);
     }
 }
