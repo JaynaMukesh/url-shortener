@@ -4,4 +4,5 @@ body {
     background: -webkit-linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(230, 26, 129, 0.9696078260405725) 0%, rgba(164, 22, 246, 1) 95%);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(230, 26, 129, 0.9696078260405725) 0%, rgba(164, 22, 246, 1) 95%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#a416f6", GradientType=1);
+    height: 100dvh;
 }
