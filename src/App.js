@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { FaLink, FaCopy } from "react-icons/fa"
+import { FaLink, FaCopy, FaWindowClose } from "react-icons/fa"
 import { Button, Loading } from "@nextui-org/react"
 import { message } from "antd"
 // API Request sample: https://apis.webxspark.com/v2.0/mini-links/magic?insert&url=https://ai.webxspark.com/reword-me/ 
@@ -48,22 +48,29 @@ function App() {
     <div className="flex justify-center pt-16">
       <div className='w-full'>
         <div className='text-3xl font-semibold text-center'>MiniLinks</div>
-        <div className='pt-4 text-xl text-center'>MiniLinks is a free tool to shorten a URL.<br />Use our URL Shortener to create a rememberable and easy-to-share URL.</div>
-        <form className='my-12 mx-64 flex flex-col items-center gap-4 bg-white px-9 py-4 rounded-xl' onSubmit={handleFormSubmit}>
-          <div className="flex gap-4 w-full items-center">
-            <FaLink className='text-xl animate-bounce ' />
-            <input name="url" type='url' placeholder='Enter the link here' className='py-3 w-full px-2 text-xl focus:outline-none ' />
-            <button className='bg-black text-white px-10 py-2 rounded-lg disabled:bg-gray-900' disabled={btnState}>
+        <div className='pt-4 md:text-xl text-base font-semibold mx-4 md:font-medium text-center'>MiniLinks is a free tool to shorten a URL.<br />Use our URL Shortener to create a rememberable and easy-to-share URL.</div>
+        <form className='my-12 lg:mx-64 mx-4 sm:mx-8 md:mx-12 flex flex-col items-center gap-4 bg-white px-9 py-4 rounded-xl' onSubmit={handleFormSubmit}>
+          <div className="flex gap-4 w-full flex-col md:flex-row items-center">
+            <div className='flex w-full items-center gap-4'>
+              <FaLink className='lg:text-xl text-sm animate-bounce ' />
+              <input name="url" type='url' placeholder='Enter the link here' className='py-3 w-full px-2 lg:text-xl md:text-lg focus:outline-none ' />
+            </div>
+            <button className='bg-black text-white w-full md:w-auto md:px-10 px-6 py-2 rounded-lg disabled:bg-gray-900' disabled={btnState}>
               {btnState ? (<Loading type="points-opacity" color="currentColor" size="sm" />) : 'Minify'}
             </button>
           </div>
           {
             responseBox ? (<><div className='bg-[#f6f5fa] rounded-md px-4 py-4 w-full'>
               <div className='flex justify-between items-center'>
-                <a target='_blank' rel="noreferrer noopener" className='underline underline-offset-4' href={shortUrl}>{shortUrl}</a>
+                <a target='_blank' rel="noreferrer noopener" className='underline underline-offset-4 text-sm sm:text-base' href={shortUrl}>{shortUrl}</a>
                 <div className='flex items-center gap-4'>
-                  <Button onClick={() => { copyToClipboard(shortUrl) }} auto type="button" flat color={'secondary'}>Copy &nbsp;<FaCopy className="text-sm" /></Button>
-                  <div onClick={() => { setVisibility(false); clearInputField(); }} className='h-full p-2 cursor-pointer hover:bg-gray-200 font-bold'>X</div>
+                  <div className='flex flex-col gap-3'>
+                    <Button className='mx-3 sm:mx-0' onClick={() => { copyToClipboard(shortUrl) }} auto type="button" size={'sm'} flat color={'secondary'}>Copy &nbsp;<FaCopy className="text-sm" /></Button>
+                    <div className='flex sm:hidden items-center justify-center w-full'>
+                      <div onClick={() => { setVisibility(false); clearInputField(); }} className='py-1 px-10 rounded-xl bg-[#fdd8e5] text-[#f31260] cursor-pointer font-bold'>X</div>
+                    </div>
+                  </div>
+                  <div onClick={() => { setVisibility(false); clearInputField(); }} className='hidden sm:block h-full p-2 cursor-pointer hover:bg-gray-200 font-bold'>X</div>
                 </div>
               </div>
             </div></>) : <></>
