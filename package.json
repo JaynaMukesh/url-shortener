@@ -40,5 +40,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.1"
-  }
+  },
+  "homepage": "https://apis.webxspark.com/mini-links"
 }
