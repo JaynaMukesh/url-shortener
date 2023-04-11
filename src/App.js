@@ -61,10 +61,10 @@ function App() {
           </div>
           {
             responseBox ? (<><div className='bg-[#f6f5fa] rounded-md px-4 py-4 w-full'>
-              <div className='flex justify-between items-center'>
+              <div className='flex flex-col gap-4 md:gap-0 md:flex-row justify-between items-center'>
                 <a target='_blank' rel="noreferrer noopener" className='underline underline-offset-4 text-sm sm:text-base' href={shortUrl}>{shortUrl}</a>
                 <div className='flex items-center gap-4'>
-                  <div className='flex flex-col gap-3'>
+                  <div className='flex gap-3'>
                     <Button className='mx-3 sm:mx-0' onClick={() => { copyToClipboard(shortUrl) }} auto type="button" size={'sm'} flat color={'secondary'}>Copy &nbsp;<FaCopy className="text-sm" /></Button>
                     <div className='flex sm:hidden items-center justify-center w-full'>
                       <div onClick={() => { setVisibility(false); clearInputField(); }} className='py-1 px-10 rounded-xl bg-[#fdd8e5] text-[#f31260] cursor-pointer font-bold'>X</div>
