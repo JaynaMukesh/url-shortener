@@ -13,6 +13,9 @@ function App() {
     navigator.clipboard.writeText(text);
     messageApi.success("Copied to clipboard!");
   }
+  const clearInputField = () => {
+    document.querySelector('[name="url"]').value = "";
+  }
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -57,10 +60,10 @@ function App() {
           {
             responseBox ? (<><div className='bg-[#f6f5fa] rounded-md px-4 py-4 w-full'>
               <div className='flex justify-between items-center'>
-                <a target='_blank' className='underline underline-offset-4' href={shortUrl}>{shortUrl}</a>
+                <a target='_blank' rel="noreferrer noopener" className='underline underline-offset-4' href={shortUrl}>{shortUrl}</a>
                 <div className='flex items-center gap-4'>
                   <Button onClick={() => { copyToClipboard(shortUrl) }} auto type="button" flat color={'secondary'}>Copy &nbsp;<FaCopy className="text-sm" /></Button>
-                  <div onClick={() => { setVisibility(false) }} className='h-full p-2 cursor-pointer hover:bg-gray-200 font-bold'>X</div>
+                  <div onClick={() => { setVisibility(false); clearInputField(); }} className='h-full p-2 cursor-pointer hover:bg-gray-200 font-bold'>X</div>
                 </div>
               </div>
             </div></>) : <></>
